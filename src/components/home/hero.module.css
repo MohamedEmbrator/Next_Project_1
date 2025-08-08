@@ -1,0 +1,19 @@
+@media (max-width: 780px) {
+  .hero {
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+  }
+  .heroLeft {
+    background-color: snow;
+    margin: 20px 0;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    width: 100%;
+    padding: 15px;
+  }
+}
