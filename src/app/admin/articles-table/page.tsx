@@ -13,7 +13,7 @@ interface AdminArticlesTableProps {
   searchParams: { pageNumber: string };
 }
 
-const AdminArticlesTable = async ({ searchParams: { pageNumber } }: AdminArticlesTableProps) => {
+const AdminArticlesTable = async ({ searchParams: { pageNumber } }: any) => {
   const token = (await cookies()).get("jwtToken")?.value;
   if (!token) redirect("/");
   const payload = verifyTokenForPage(token);
