@@ -7,7 +7,7 @@ interface Props {
   params: { id: string };
 }
 
-export async function PUT(request: NextRequest, { params }: Props) {
+export async function PUT(request: NextRequest, { params }: any) {
   try {
     const comment = await prisma.comment.findUnique({ where: { id: +params.id } });
     if (!comment) {
@@ -25,7 +25,7 @@ export async function PUT(request: NextRequest, { params }: Props) {
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: Props) {
+export async function DELETE(request: NextRequest, { params }: any) {
   try {
     const comment = await prisma.comment.findUnique({ where: { id: +params.id } });
     if (!comment) {
