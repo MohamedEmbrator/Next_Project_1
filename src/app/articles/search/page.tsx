@@ -1,10 +1,10 @@
 import { getArticlesBasedOnSearch } from "@/apiCalls/articleAPICall";
 import ArticleItem from "@/components/articles/ArticleItem";
 import { Article } from "@/generated/prisma";
-interface SearchArticlePageProps {
-  searchParams: {searchText: string}
-}
-const SearchArticlePage = async ({ searchParams }: SearchArticlePageProps) => {
+// interface SearchArticlePageProps {
+//   searchParams: {searchText: string}
+// }
+const SearchArticlePage = async ({ searchParams }: any) => {
   const searchText = searchParams.searchText;
   const articles: Article[] = await getArticlesBasedOnSearch(searchText);
   return (
