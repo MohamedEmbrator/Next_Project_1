@@ -8,7 +8,7 @@ interface EditArticlePageProps {
     params: { id: string };
 }
 
-const EditArticlePage = async ({ params }: EditArticlePageProps) => {
+const EditArticlePage = async ({ params }: { params: { id: string }; }) => {
   const token = (await cookies()).get("jwtToken")?.value;
   if (!token) redirect("/");
   const payload = verifyTokenForPage(token);
