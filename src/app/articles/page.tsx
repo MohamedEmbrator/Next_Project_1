@@ -7,11 +7,11 @@ import { getArticles } from "@/apiCalls/articleAPICall";
 import { ARTICLE_PER_PAGE } from "@/utils/constants";
 import { prisma } from "@/utils/db";
 
-// interface ArticlesPageProps {
-//   searchParams: { pageNumber: string };
-// }
+interface ArticlesPageProps {
+  searchParams: { pageNumber: string };
+}
 
-const Articles = async ({ searchParams }: any) => {
+const Articles = async ({ searchParams }: ArticlesPageProps) => {
   const { pageNumber } = searchParams;
   const articles: Article[] = await getArticles(pageNumber);
   const count: number = await prisma.article.count();

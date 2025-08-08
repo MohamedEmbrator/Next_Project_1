@@ -7,7 +7,7 @@ interface Props {
   params: { id: string };
 }
 
-export async function GET(request: NextRequest, { params }: any) {
+export async function GET(request: NextRequest, { params }: Props) {
   try {
     const article = await prisma.article.findUnique({ where: { id: +params.id }, include: { comments: { include: { user: { select: { username: true } } }, orderBy: { createdAt: "desc" } } } });
     if (!article) {
@@ -19,7 +19,7 @@ export async function GET(request: NextRequest, { params }: any) {
   }
 }
 
-export async function PUT(request: NextRequest, { params }: any) {
+export async function PUT(request: NextRequest, { params }: Props) {
   try {
     const user = verifyToken(request);
     if (!user || user.isAdmin === false) {
@@ -37,7 +37,7 @@ export async function PUT(request: NextRequest, { params }: any) {
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: any) {
+export async function DELETE(request: NextRequest, { params }: Props) {
   try {
     const user = verifyToken(request);
     if (!user || user.isAdmin === false) {

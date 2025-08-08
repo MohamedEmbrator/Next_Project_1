@@ -9,7 +9,7 @@ interface Props {
   params: { id: string };
 }
 
-export async function DELETE(request: NextRequest, {params}: any) {
+export async function DELETE(request: NextRequest, {params}: Props) {
   try {
     const user = await prisma.user.findUnique({ where: { id: +params.id }, include: { comments: true } });
     if (!user) {
@@ -28,7 +28,7 @@ export async function DELETE(request: NextRequest, {params}: any) {
   }
 }
 
-export async function GET(request: NextRequest, { params }: any) {
+export async function GET(request: NextRequest, { params }: Props) {
   try {
     const user = await prisma.user.findUnique({
       where: { id: +params.id }, select: {
@@ -52,7 +52,7 @@ export async function GET(request: NextRequest, { params }: any) {
 }
 
 
-export async function PUT(request: NextRequest, { params }: any) {
+export async function PUT(request: NextRequest, { params }: Props) {
     try {
       const user = await prisma.user.findUnique({ where: { id: +params.id } });
       if (!user) {
