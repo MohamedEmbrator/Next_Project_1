@@ -12,7 +12,7 @@ interface EditArticleFormProps {
     article: Article;
 }
 
-const EditArticleForm = ({ article }: EditArticleFormProps) => {
+const EditArticleForm = ({ article }: any) => {
     const router = useRouter();
     const [title, setTitle] = useState(article.title);
     const [description, setDescription] = useState(article.description);
