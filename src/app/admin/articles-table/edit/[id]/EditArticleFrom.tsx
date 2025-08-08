@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { DOMAIN } from '@/utils/constants';
 import { useRouter } from 'next/navigation';
-import { Article } from '@prisma/client';
+import { Article } from '@/generated/prisma';
 
 
 interface EditArticleFormProps {
