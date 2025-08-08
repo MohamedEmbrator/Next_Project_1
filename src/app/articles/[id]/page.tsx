@@ -5,9 +5,9 @@ import { SingleArticle } from "@/utils/types";
 import { verifyTokenForPage } from "@/utils/verifyToken";
 import { cookies } from "next/headers";
 
-// interface SingleArticlePageProps  {
-//   params: {id: string}
-// }
+interface SingleArticlePageProps  {
+  params: {id: string}
+}
 
 const SingleArticlePage = async (props: any) => {
   const token = (await cookies()).get("jwtToken")?.value || "";
