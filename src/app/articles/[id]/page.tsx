@@ -9,7 +9,7 @@ interface SingleArticlePageProps {
   params: {id: string}
 }
 
-const SingleArticlePage = async ({ params }: SingleArticlePageProps) => {
+const SingleArticlePage = async ({ params }: any) => {
   const token = (await cookies()).get("jwtToken")?.value || "";
   const payload = verifyTokenForPage(token);
   const article: SingleArticle = await getSingleArticle(params.id);
