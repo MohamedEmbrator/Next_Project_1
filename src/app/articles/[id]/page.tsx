@@ -4,6 +4,7 @@ import CommentItem from "@/components/comments/CommentItem";
 import { SingleArticle } from "@/utils/types";
 import { verifyTokenForPage } from "@/utils/verifyToken";
 import { cookies } from "next/headers";
+import { notFound } from "next/navigation";
 
 interface SingleArticlePageProps {
   params: {id: string}
@@ -13,6 +14,9 @@ const SingleArticlePage = async ({ params }: SingleArticlePageProps) => {
   const token = (await cookies()).get("jwtToken")?.value || "";
   const payload = verifyTokenForPage(token);
   const article: SingleArticle = await getSingleArticle(params.id);
+  if (!article) {
+    notFound();
+  }
   return (
     <section className="min-h-[calc(100vh_-_156px)] container m-auto w-full px-5 pt-8 md:w-3/4">
       <div className="bg-white p-7 rounded-lg mb-7">
